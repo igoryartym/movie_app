@@ -1,53 +1,23 @@
 import React from "react";
-import axios from "axios";
-import Movie from "./Movie";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./route/Home";
+import "./App.css";
+import Detail from "./components/Detail";
 
-class App extends React.Component {
-  state = {
-    isLoading: true,
-    movies: [],
-  };
-
-  getMovies = async () => {
-    const {
-      data: {
-        data: { movies },
-      },
-    } = await axios.get("https://yts.mx/api/v2/list_movies.json");
-    this.setState({ movies, isLoading: false });
-  };
-
-  componentDidMount() {
-    this.getMovies();
-  }
-
-  render() {
-    const { isLoading, movies } = this.state;
-    return (
-      <section className="container">
-        {isLoading ? (
-          <div className="loader">
-            <span className="loader_text">Loading..</span>
-          </div>
-        ) : (
-          <div key={movies.id} className="movies">
-            {movies.map((movie) => (
-              <Movie
-                key={movie.id}
-                id={movie.id}
-                year={movie.year}
-                S
-                title={movie.title}
-                summary={movie.summary}
-                poster={movie.medium_cover_image}
-                genres={movie.genres}
-              />
-            ))}
-          </div>
-        )}
-      </section>
-    );
-  }
+function App() {
+  return (
+    <>
+      <header>
+        <Link to="/movie_app" className="page">
+          Home page
+        </Link>
+        <input className="search" type={"search"} placeholder="Search" />
+      </header>
+      <Routes>
+        <Route path="/movie_app" element={<Home />} />
+        <Route path="/movie_details" element={<Detail />} />
+      </Routes>
+    </>
+  );
 }
-
 export default App;

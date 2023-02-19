@@ -1,11 +1,8 @@
 .movies {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-around;
   flex-wrap: wrap;
-  padding: 50px;
-  padding-top: 70px;
-  width: 80%;
+  width: 70%;
 }
 
 .movies .movie {
@@ -18,12 +15,12 @@
   margin-bottom: 70px;
   justify-content: center;
   font-weight: 300;
-  padding: 20px;
+  padding: 20px 10px;
   border-radius: 5%;
   color: #adaeb9;
 }
 
-.movie .img {
+.movie img {
   position: relative;
   max-width: 120%;
   top: -50px;

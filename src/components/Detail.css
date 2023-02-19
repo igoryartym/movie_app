@@ -1,0 +1,8 @@
+.span {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 70%;
+  font-size: xx-large;
+  color: white;
+}
